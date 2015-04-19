@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get 'welcome/index'
-  resources :users
+  resources :users, except: [:destroy]
   resources :sessions
-  
+
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
 
